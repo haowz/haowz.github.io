@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-06-20T13:53:57.042Z</updated>
+  <updated>2021-06-21T03:40:45.907Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Wordpress 4.6 任意命令执行漏洞 (PwnScriptum)</title>
+    <link href="http://example.com/2021/06/21/wordpress-4.6-ren-yi-ming-ling-zhi-xing-lou-dong/"/>
+    <id>http://example.com/2021/06/21/wordpress-4.6-ren-yi-ming-ling-zhi-xing-lou-dong/</id>
+    <published>2021-06-21T00:41:00.629Z</published>
+    <updated>2021-06-21T03:40:45.907Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;WordPress 是一种使用 PHP 语言开发的博客平台，用户可以在支持 PHP 和 MySQL 数据库的服务器上架设属于自己的网站。也可以把 WordPress 当作一个内容管理系统（CMS）来使用。WordPress 使用</summary>
+        
+      
+    
+    
+    
+    <category term="漏洞复现" scheme="http://example.com/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    
+    
+    <category term="Web" scheme="http://example.com/tags/Web/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hello World</title>
     <link href="http://example.com/2021/06/20/hello/"/>
     <id>http://example.com/2021/06/20/hello/</id>
     <published>2021-06-20T10:52:41.354Z</published>
-    <updated>2021-06-20T13:53:57.042Z</updated>
+    <updated>2021-06-21T03:38:17.401Z</updated>
     
     
       
