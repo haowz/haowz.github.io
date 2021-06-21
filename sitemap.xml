@@ -3,23 +3,23 @@
 
 
     <sitemap>
-        <loc>http://example.com/post-sitemap.xml</loc>
-        <lastmod>2021-06-21T04:56:39.909Z</lastmod>
+        <loc>https://haowz.github.io/post-sitemap.xml</loc>
+        <lastmod>2021-06-21T13:35:04.320Z</lastmod>
     </sitemap>
 
     <sitemap>
-        <loc>http://example.com/page-sitemap.xml</loc>
+        <loc>https://haowz.github.io/page-sitemap.xml</loc>
         <lastmod>2021-06-20T13:04:22.561Z</lastmod>
     </sitemap>
 
     <sitemap>
-        <loc>http://example.com/category-sitemap.xml</loc>
-        <lastmod>2021-06-21T04:56:39.909Z</lastmod>
+        <loc>https://haowz.github.io/category-sitemap.xml</loc>
+        <lastmod>2021-06-21T13:35:04.320Z</lastmod>
     </sitemap>
 
     <sitemap>
-        <loc>http://example.com/tag-sitemap.xml</loc>
-        <lastmod>2021-06-21T04:56:39.909Z</lastmod>
+        <loc>https://haowz.github.io/tag-sitemap.xml</loc>
+        <lastmod>2021-06-21T13:35:04.320Z</lastmod>
     </sitemap>
 
 </sitemapindex>
