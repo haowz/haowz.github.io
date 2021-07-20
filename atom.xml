@@ -6,7 +6,7 @@
   <link href="https://haowz.github.io/atom.xml" rel="self"/>
   
   <link href="https://haowz.github.io/"/>
-  <updated>2021-06-21T15:59:00.064Z</updated>
+  <updated>2021-07-20T08:33:46.036Z</updated>
   <id>https://haowz.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>常见数据库注入</title>
+    <link href="https://haowz.github.io/2021/07/20/chang-jian-shu-ju-ku-zhu-ru/"/>
+    <id>https://haowz.github.io/2021/07/20/chang-jian-shu-ju-ku-zhu-ru/</id>
+    <published>2021-07-20T07:25:59.583Z</published>
+    <updated>2021-07-20T08:33:46.036Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;SQL注入&quot;&gt;&lt;a href=&quot;#SQL注入&quot; class=&quot;headerlink&quot; title=&quot;SQL注入&quot;&gt;&lt;/a&gt;SQL注入&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/medias/images/image-20210617200610932.png&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="安全测试" scheme="https://haowz.github.io/categories/%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95/"/>
+    
+    
+    <category term="web" scheme="https://haowz.github.io/tags/web/"/>
+    
+    <category term="mozhe" scheme="https://haowz.github.io/tags/mozhe/"/>
+    
+    <category term="sql注入" scheme="https://haowz.github.io/tags/sql%E6%B3%A8%E5%85%A5/"/>
+    
+    <category term="sqlmap" scheme="https://haowz.github.io/tags/sqlmap/"/>
+    
+  </entry>
   
   <entry>
     <title>反弹Shell方式详解</title>

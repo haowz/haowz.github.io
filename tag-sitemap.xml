@@ -3,6 +3,34 @@
 
 
     <url>
+        <loc>https://haowz.github.io/tags/sqlmap/</loc>
+        <lastmod>2021-07-20T08:33:46.036Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://haowz.github.io/tags/sql%E6%B3%A8%E5%85%A5/</loc>
+        <lastmod>2021-07-20T08:33:46.036Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://haowz.github.io/tags/mozhe/</loc>
+        <lastmod>2021-07-20T08:33:46.036Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://haowz.github.io/tags/web/</loc>
+        <lastmod>2021-07-20T08:33:46.036Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://haowz.github.io/tags/Web/</loc>
         <lastmod>2021-06-21T19:21:23.351Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -11,13 +39,6 @@
 
     <url>
         <loc>https://haowz.github.io/tags/shell/</loc>
-        <lastmod>2021-06-21T15:59:00.064Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://haowz.github.io/tags/web/</loc>
         <lastmod>2021-06-21T15:59:00.064Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
