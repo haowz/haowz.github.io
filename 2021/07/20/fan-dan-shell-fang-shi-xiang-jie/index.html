@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, 勿休">
+    <meta name="keywords" content="反弹Shell方式详解, 勿休">
     <meta name="description" content="宁静致远">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hello World | 勿休</title>
+    <title>反弹Shell方式详解 | 勿休</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -486,12 +486,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featuredPic/1.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hello World</h1>
+                    <h1 class="description center-align post-title">反弹Shell方式详解</h1>
                 </div>
             </div>
         </div>
@@ -607,8 +607,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/hexo/">
-                                <span class="chip bg-color">hexo</span>
+                            <a href="/tags/web/">
+                                <span class="chip bg-color">web</span>
+                            </a>
+                        
+                            <a href="/tags/shell/">
+                                <span class="chip bg-color">shell</span>
                             </a>
                         
                     </div>
@@ -619,8 +623,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/test/" class="post-category">
-                                test
+                            <a href="/categories/%E6%BC%8F%E6%B4%9E/" class="post-category">
+                                漏洞
                             </a>
                         
                     </div>
@@ -632,21 +636,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-06-21
+                    2021-07-20
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-21
+                    2021-07-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    189
+                    294
                 </div>
                 
 
@@ -676,23 +680,26 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-<h3 id="写文章"><a href="#写文章" class="headerlink" title="写文章"></a>写文章</h3><blockquote>
-<p>在_post 文件夹下，新建&amp;&amp;.md 文件<br>基本配置如下：</p>
-<p>title： 文章标题<br>top： 是否把文章置顶<br>img： 是否给文章定义特色图片，如果不设置，默认从featureimages里面抽取<br>cover： 轮播<br>coverImg： 轮播图<br>password： 是否加密文章，SHA256加密<br>summary： 是否给文章加上摘要，不设置，默认截取文章开头一部分<br>categories： 给文章分类<br>tags： 给文章加标签，可加多个</p>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><h3 id="含义"><a href="#含义" class="headerlink" title="含义"></a>含义</h3><blockquote>
+<p><code>反弹shell / 反向shell / 反弹壳 / 反弹外壳</code> </p>
+<ul>
+<li>什么是反弹shell（reverse shell）？<br>就是控制端监听某TCP/UDP端口，被控端发起请求到该端口，并将其命令行的输入输出转到控制端。reverse shell与telnet，ssh等标准shell对应，本质上是网络概念的客户端与服务端的角色反转。</li>
+<li>为什么需要反弹shell？<br>反弹shell通常用于被控端因防火墙受限、权限不足、端口被占用等情形。在渗透过程中，往往因为端口限制而无法直连目标机器，此时需要通过反弹shell来获取一个交互式shell，以便继续深入。</li>
+</ul>
 </blockquote>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><blockquote>
+<ul>
+<li>让对方目标机器主动连接攻击者机器（攻击者指定服务端，受害者主机主动连接攻击者的服务端程序）</li>
+</ul>
+<ol>
+<li> 攻击者A开启19111端口TCP服务</li>
+<li> 受害者B连接19111端口TCP服务</li>
+<li> A、B建立TCP连接</li>
+<li> A通过TCP服务将待执行命令发送到B</li>
+<li> B执行命令后将结果发送给A</li>
+</ol>
+</blockquote>
+<h2 id="Linux下反弹Shell"><a href="#Linux下反弹Shell" class="headerlink" title="Linux下反弹Shell"></a>Linux下反弹Shell</h2><p>环境：<br>Win10 192.168.1.107   NC监听<br>Kali  192.168.102.128 自带工具</p>
 
                 
             </div>
@@ -719,7 +726,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://haowz.github.io/2021/06/21/hello/">https://haowz.github.io/2021/06/21/hello/</a>
+                    <a href="https://haowz.github.io/2021/07/20/fan-dan-shell-fang-shi-xiang-jie/">https://haowz.github.io/2021/07/20/fan-dan-shell-fang-shi-xiang-jie/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -757,8 +764,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/hexo/">
-                                    <span class="chip bg-color">hexo</span>
+                                <a href="/tags/web/">
+                                    <span class="chip bg-color">web</span>
+                                </a>
+                            
+                                <a href="/tags/shell/">
+                                    <span class="chip bg-color">shell</span>
                                 </a>
                             
                         </div>
@@ -934,7 +945,7 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/06/21/wordpress-4.6-ren-yi-ming-ling-zhi-xing-lou-dong/">
+                <a href="/2021/07/20/wordpress-4.6-ren-yi-ming-ling-zhi-xing-lou-dong/">
                     <div class="card-image">
                         
                         <img src="/medias/featuredPic/0.png" class="responsive-img" alt="Wordpress 4.6 任意命令执行漏洞 (PwnScriptum)">
@@ -950,7 +961,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-21
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-07-20
                         </span>
                         <span class="publish-author">
                             
@@ -982,31 +993,30 @@
                 本篇&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
-                <a href="/2021/06/21/hello/">
+                <a href="/2021/07/20/fan-dan-shell-fang-shi-xiang-jie/">
                     <div class="card-image">
                         
+                        <img src="/medias/featuredPic/1.png" class="responsive-img" alt="反弹Shell方式详解">
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
-                        
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">反弹Shell方式详解</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            hexo的个性化配置
+                            有关反弹shell的理论理解
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-20
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/test/" class="post-category">
-                                    test
+                            <a href="/categories/%E6%BC%8F%E6%B4%9E/" class="post-category">
+                                    漏洞
                                 </a>
                             
                             
@@ -1017,8 +1027,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/hexo/">
-                        <span class="chip bg-color">hexo</span>
+                    <a href="/tags/web/">
+                        <span class="chip bg-color">web</span>
+                    </a>
+                    
+                    <a href="/tags/shell/">
+                        <span class="chip bg-color">shell</span>
                     </a>
                     
                 </div>
